@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
-
+import Auth from '../../../hoc/auth';
 import { useNavigate } from 'react-router-dom'; 
 //LandingPage에 들어오자 마자
 //실행
 function LandingPage(props) {
+
+    const navigate = useNavigate()
+    console.log("Landingpage 실행")
     // const navigate = useNavigate();
     //1. useEffect훅을 사용. 컴포넌트가 마운트될 때 한번만 실행되는 비동기 요청 수행.
     useEffect(() => {
@@ -23,7 +26,8 @@ function LandingPage(props) {
                 if (response.data.success) {
                     //history가 'react-router-dom'을 이용해 사용중
                     //useNavigste훅을 사용하여 로그인 페이지로 이동
-                    props.history.push("/login")
+                    // props.history.push("/login")
+                    navigate('/login')
                     
                 } else {
                     alert('로그아웃 하는데 실패 했습니다.')
@@ -49,4 +53,4 @@ function LandingPage(props) {
     )
 }
 
-export default LandingPage
+export default Auth(LandingPage, null)

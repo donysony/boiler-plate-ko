@@ -20,6 +20,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //root.render를 사용하여 App component를 root에 렌더링
 // Provider컴포넌트로 감싸져 있어 Redux스토어 사용 가능
 //React.StrictMode를 사용하여 개발 모드에서 추가적인 검사 & 경고 활성화
+//createStoreWithMiddlewear Redux 스토어 생성
 root.render( 
   <React.StrictMode> 
   <Provider store={createStoreWithMiddlewear(Reducer,
